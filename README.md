@@ -1,0 +1,1 @@
+Este é um simples sistema de cadastro de produtos em Java, onde você pode cadastrar, editar, excluir e consultar informações sobre produtos. O sistema utiliza classes como Produto para representar os produtos e CadastroProduto para gerenciar as operações
