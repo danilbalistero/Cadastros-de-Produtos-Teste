@@ -1,6 +1,8 @@
 package org.example;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Produto {
     String nome;
     String descricao;
@@ -55,6 +57,12 @@ public class Produto {
     public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
         this.quantidadeEmEstoque = quantidadeEmEstoque;
     }
+
+    public boolean isValid() {
+        return !StringUtils.isAnyEmpty(nome, descricao, categoria) &&
+                precoUnitario != 0 && quantidadeEmEstoque >= 0;
+    }
+
 }
 
 

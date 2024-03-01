@@ -11,12 +11,12 @@ public class ProdutoTest {
     @Test
     public void cadastroProduto() {
         CadastroProduto cadastroProduto = new CadastroProduto();
-        Produto produto = new Produto("Arroz", "Cereal", "Alimento", 2.5, 20);
 
-        cadastroProduto.cadastrarProduto(produto);
+        Produto produto1 = new Produto("Arroz", "Cereal", "Alimento", 2.5, 20);
+        cadastroProduto.cadastrarProduto(produto1);
 
         List<Produto> produtosCadastrados = cadastroProduto.listarProdutos();
-        Assertions.assertTrue(produtosCadastrados.contains(produto));
+        Assertions.assertTrue(produtosCadastrados.contains(produto1));
     }
 
     @Test

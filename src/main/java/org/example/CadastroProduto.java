@@ -1,5 +1,7 @@
 package org.example;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,18 +13,27 @@ public class CadastroProduto {
     }
 
     public void cadastrarProduto(Produto produto) {
-        produtos.add(produto);
+        if (produto.isValid()){
+            produtos.add(produto);
+        } else {
+            System.out.println("Erro: Produto com campos vazios. Não foi possível cadastrar.");
+        }
+
     }
 
     public void editarProduto(String nomeAntigo, Produto novoProduto) {
-        for (int i = 0; i < produtos.size(); i++) {
-            Produto produto = produtos.get(i);
-            if (produto.getNome().equals(nomeAntigo)) {
-                produtos.set(i, novoProduto);
-                return;
+        if (novoProduto.isValid()) {
+            for (int i = 0; i < produtos.size(); i++) {
+                Produto produto = produtos.get(i);
+                if (produto.getNome().equals(nomeAntigo)) {
+                    produtos.set(i, novoProduto);
+                    return;
+                }
             }
+            System.out.println("Erro: Produto não encontrado. Não foi possível editar.");
+        } else {
+            System.out.println("Erro: Novo produto inválido. Não foi possível editar.");
         }
-        System.out.println("Erro: Produto não encontrado. Não foi possível editar.");
     }
 
     public void excluirProduto(String nome) {
@@ -41,4 +52,7 @@ public class CadastroProduto {
     public List<Produto> listarProdutos() {
         return new ArrayList<>(produtos);
     }
+
+
+
 }
